@@ -19,3 +19,8 @@ jobs:
 
       - name: Build binaries
         run: go build
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: binary
+          path: *.exe
