@@ -1,4 +1,4 @@
-# tabletennis_result_converter
+# Table Tennis Results Converter 🏓
 
 Convert table tennis results from csv to html.
 

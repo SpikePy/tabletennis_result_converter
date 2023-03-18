@@ -2,13 +2,13 @@
 
 ###[ VARIABLE DEFINITION ]######################################################
 
-csv_original=Vereinsspielplan_*.csv
+csv_original=$(ls -1 Vereinsspielplan_*.csv | tail --lines=1)
 csv_converted=/tmp/results_converted.csv
 
 
 ###[ CONVERT/FIX CHARACTER ENCODING ]###########################################
 
-echo "Convert csv"
+echo "Convert \"${csv_original}\""
 iconv -f ISO-8859-1 -t UTF-8 ${csv_original} --output="${csv_converted}"
 dos2unix -q "${csv_converted}"
 
