@@ -23,4 +23,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: binary
-          path: ./*.exe
+          path: tabletennis_result_converter.exe
