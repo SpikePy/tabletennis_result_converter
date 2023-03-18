@@ -26,17 +26,18 @@ jobs:
       #     name: binaries
       #     path: tabletennis_result_converter.exe
 
-      - name: release
-        uses: actions/create-release@v1
+      - name: Create Release
         id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            latest release from main branch
           draft: false
           prerelease: false
-          release_name: ${{ steps.version.outputs.version }}
-          tag_name: ${{ github.ref }}
-          body: latest release
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
 
       - name: upload windows artifact
         uses: actions/upload-release-asset@v1
