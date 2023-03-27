@@ -30,7 +30,7 @@ echo "Generated: ${html_result}"
 
 # PLAYED MATCHES
 html_result=result_played.html
-grep --extended-regexp ';[1-9];[1-9]$' "${csv_converted}" | awk --field-separator=';' '
+grep --invert-match --extended-regexp ';0;0$' "${csv_converted}" | awk --field-separator=';' '
     BEGIN {print "<table>\n  <tr>\n    <th>Termin</th>\n    <th>Staffel</th>\n    <th>Heim-Verein</th>\n    <th>Gast-Verein</th>\n    <th>Ergebnis</th>\n  </tr>"}
     {
         if (NR>1) {
